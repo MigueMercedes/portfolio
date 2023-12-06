@@ -1,18 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Layout from './components/Layout';
 import './index.css';
-import Home from './pages/home/Home';
 import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
+import Home from './pages/home/Home';
 import Projects from './pages/projects/Projects';
-import Layout from './components/Layout';
-import Error404 from './pages/Error404';
+import Resume from './pages/resume/Resume';
 
 const router = createBrowserRouter([
   {
     element: <Layout />,
-    errorElement: <Error404 />,
     children: [
       {
         path: '/',
@@ -29,6 +28,14 @@ const router = createBrowserRouter([
       {
         path: '/projects',
         element: <Projects />,
+      },
+      {
+        path: '/resume',
+        element: <Resume />,
+      },
+      {
+        path: '*',
+        element: <Home />,
       },
     ],
   },

@@ -4,7 +4,7 @@ import { Cover } from './Cover';
 
 const Layout = () => {
   return (
-    <div className='bg-[#17043e] h-[100vh]'>
+    <div className='bg-[#17043e] h-full'>
       <Header />
       <Cover children={<Outlet />} />
     </div>

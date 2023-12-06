@@ -4,7 +4,8 @@ export const optionsParticles = {
     events: {
       onClick: {
         enable: true,
-        mode: "push",
+        // mode: "push",
+        mode: "grab",
       },
       onHover: {
         enable: true,
@@ -14,7 +15,7 @@ export const optionsParticles = {
     },
     modes: {
       push: {
-        quantity: 4,
+        quantity: 3,
       },
       repulse: {
         distance: 200,
@@ -40,7 +41,7 @@ export const optionsParticles = {
       direction: undefined,
       enable: true,
       random: true,
-      speed: 0.5,
+      speed: 0.8,
       straight: false,
     },
     number: {

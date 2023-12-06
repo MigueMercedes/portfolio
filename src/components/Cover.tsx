@@ -16,13 +16,14 @@ export function Cover({ children }: { children: React.ReactNode }) {
   return (
     <div id='cover'>
       <Particles
-        className='absolute w-full h-full translate-x-0'
         id='tsparticles'
         init={particlesInit}
         loaded={particlesLoaded}
         options={optionsParticles}
       />
-      {children}
+      <div className='w-full relative flex flex-col items-center justify-center'>
+        {children}
+      </div>
     </div>
   );
 }

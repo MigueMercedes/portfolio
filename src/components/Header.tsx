@@ -1,14 +1,17 @@
 import { useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import Logo from '../assets/MiguelMercedesIcon.jpeg';
 
 const Header = () => {
   const [isOpenMobileMenu, setIsOpenMobileMenu] = useState(false);
 
+  const { pathname } = useLocation();
+
   return (
-    <nav className='bg-black border-gray-200 py-2'>
+    <nav className='bg-black/80 border-gray-200 py-2 sticky top-0 z-50'>
       <div className='flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto'>
-        <a
-          href='/'
+        <Link
+          to='/'
           className='flex items-center'
         >
           <img
@@ -17,9 +20,9 @@ const Header = () => {
             alt='Miguel MercedesLogo'
           />
           <span className='self-center text-xl font-semibold whitespace-nowrap text-white'>
-            Miguel Mercedes
+            {'<Miguel'} <span className='text-[#1ad31a]'>{'Mercedes/>'}</span>
           </span>
-        </a>
+        </Link>
         <div className='flex items-center lg:order-2'>
           <div className='hidden mt-2 mr-4 sm:inline-block'>
             <span></span>
@@ -29,7 +32,7 @@ const Header = () => {
             onClick={() => setIsOpenMobileMenu(!isOpenMobileMenu)}
             data-collapse-toggle='mobile-menu-2'
             type='button'
-            className='inline-flex items-center p-2 ml-1 text-sm rounded-lg lg:hidden focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600'
+            className='hover:bg-white/20 inline-flex items-center p-2 ml-1 text-sm rounded-lg lg:hidden focus:outline-none focus:ring-2 text-gray-400 focus:ring-gray-600'
             aria-controls='mobile-menu-2'
             aria-expanded='true'
           >
@@ -66,39 +69,70 @@ const Header = () => {
           }`}
           id='mobile-menu-2'
         >
-          <ul className='flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0'>
+          <ul className='flex flex-col gap-4 mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0'>
             <li>
-              <a
-                href='/'
-                className='block text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded '
+              <NavLink
+                to='/'
+                onClick={() => setIsOpenMobileMenu(!isOpenMobileMenu)}
+                className={`text-${
+                  pathname === '/' ? '[#1ad31a] bg-slate-700' : 'white'
+                } hover:text-[#1ad31a] hover:bg-slate-600 px-3 py-2 rounded-md text-sm font-medium`}
                 aria-current='page'
               >
                 Home
-              </a>
+              </NavLink>
             </li>
+
             <li>
-              <a
-                href='/about'
-                className='block text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded'
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href='/projects'
-                className='block text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded'
+              <NavLink
+                to='/projects'
+                onClick={() => setIsOpenMobileMenu(!isOpenMobileMenu)}
+                className={`text-${
+                  pathname === '/projects' ? '[#1ad31a] bg-slate-700' : 'white'
+                } hover:text-[#1ad31a] hover:bg-slate-600 px-3 py-2 rounded-md text-sm font-medium`}
+                aria-current='page'
               >
                 Projects
-              </a>
+              </NavLink>
             </li>
+
             <li>
-              <a
-                href='contact'
-                className='block text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded'
+              <NavLink
+                to='/about'
+                onClick={() => setIsOpenMobileMenu(!isOpenMobileMenu)}
+                className={`text-${
+                  pathname === '/about' ? '[#1ad31a] bg-slate-700' : 'white'
+                } hover:text-[#1ad31a] hover:bg-slate-600 px-3 py-2 rounded-md text-sm font-medium`}
+                aria-current='page'
+              >
+                About
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                to='/contact'
+                onClick={() => setIsOpenMobileMenu(!isOpenMobileMenu)}
+                className={`text-${
+                  pathname === '/contact' ? '[#1ad31a] bg-slate-700' : 'white'
+                } hover:text-[#1ad31a] hover:bg-slate-600 px-3 py-2 rounded-md text-sm font-medium`}
+                aria-current='page'
               >
                 Contact
-              </a>
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                to='/resume'
+                onClick={() => setIsOpenMobileMenu(!isOpenMobileMenu)}
+                className={`text-${
+                  pathname === '/resume' ? '[#1ad31a] bg-slate-700' : 'white'
+                } hover:text-[#1ad31a] hover:bg-slate-600 px-3 py-2 rounded-md text-sm font-medium`}
+                aria-current='page'
+              >
+                Resume
+              </NavLink>
             </li>
           </ul>
         </div>
