@@ -1,6 +1,13 @@
 import { useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
 import Logo from '../assets/MiguelMercedesIcon.jpeg';
+
+const variants = {
+  open: { opacity: 1, x: 0 },
+  closed: { opacity: 0, x: '-100%' },
+};
 
 const Header = () => {
   const [isOpenMobileMenu, setIsOpenMobileMenu] = useState(false);
@@ -8,7 +15,14 @@ const Header = () => {
   const { pathname } = useLocation();
 
   return (
-    <nav className='bg-black/80 border-gray-200 py-2 sticky top-0 z-50'>
+    <motion.header
+      variants={variants}
+      initial='closed'
+      animate='open'
+      exit='closed'
+      transition={{ duration: 0.5 }}
+      className='bg-black/80 border-gray-200 py-2 sticky top-0 z-50'
+    >
       <div className='flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto'>
         <Link
           to='/'
@@ -63,7 +77,9 @@ const Header = () => {
             </svg>
           </button>
         </div>
-        <div
+        <motion.nav
+          variants={variants}
+          animate={isOpenMobileMenu ? 'open' : 'hidden'}
           className={`items-center justify-between w-full lg:flex lg:w-auto lg:order-1 ${
             isOpenMobileMenu ? 'block' : 'hidden'
           }`}
@@ -121,23 +137,10 @@ const Header = () => {
                 Contact
               </NavLink>
             </li>
-
-            <li>
-              <NavLink
-                to='/resume'
-                onClick={() => setIsOpenMobileMenu(!isOpenMobileMenu)}
-                className={`text-${
-                  pathname === '/resume' ? '[#1ad31a] bg-slate-700' : 'white'
-                } hover:text-[#1ad31a] hover:bg-slate-600 px-3 py-2 rounded-md text-sm font-medium`}
-                aria-current='page'
-              >
-                Resume
-              </NavLink>
-            </li>
           </ul>
-        </div>
+        </motion.nav>
       </div>
-    </nav>
+    </motion.header>
   );
 };
 

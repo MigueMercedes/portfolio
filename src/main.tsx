@@ -7,7 +7,6 @@ import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
 import Home from './pages/home/Home';
 import Projects from './pages/projects/Projects';
-import Resume from './pages/resume/Resume';
 
 const router = createBrowserRouter([
   {
@@ -28,10 +27,6 @@ const router = createBrowserRouter([
       {
         path: '/projects',
         element: <Projects />,
-      },
-      {
-        path: '/resume',
-        element: <Resume />,
       },
       {
         path: '*',

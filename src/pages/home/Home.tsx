@@ -1,4 +1,6 @@
-import { AiFillGithub, AiFillLinkedin, AiFillInstagram } from 'react-icons/ai';
+import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+
 const Home = () => {
   return (
     <>
@@ -16,20 +18,19 @@ const Home = () => {
         <p>I'm a software developer, looking to develop my skills in the field.</p>
       </div>
 
-      <div className='flex flex-col md:flex-row gap-3 mx-6 md:mx-0 md:justify-center md:space-x-4 md:items-center mt-10 text-center'>
-        <a
-          href='/contact'
-          className='w-full md:text-2xl font-bold border-b-2 border-[#000] py-2 px-4 rounded-xl hover:shadow-2xl bg-[#ccc] hover:shadow-white/50 transition duration-300 ease-in-out hover:bg-[#fff]  text-[#000] hover:text-[#000]'
-        >
-          Contact me
-        </a>
-
+      <div className='flex flex-col items-center md:flex-row gap-3 mx-6 md:mx-0 md:justify-center md:space-x-4 md:items-center mt-14 text-center'>
         <a
           // href='/contact'
-          className='w-full md:text-2xl font-bold border-b-2 border-[#000] py-2 px-4 rounded-xl hover:shadow-2xl bg-[#ccc] hover:shadow-white/50 transition duration-300 ease-in-out hover:bg-[#fff]  text-[#000] hover:text-[#000]'
+          className='max-w-fit text-[#1ad31a]/80 hover:text-[#1ad31a] transition duration-300 ease-in-out text-md hover:text-lg hover:underline cursor-pointer font-bold'
         >
-          Download resumen
+          Download resume
         </a>
+        <Link
+          to={'/contact'}
+          className='max-w-fit md:text-xl font-bold border-b-2 border-[#000] px-4 py-2 hover:border-[#1ad31a] hover:text-2xl rounded-xl hover:shadow-2xl bg-[#ccc] text-black hover:bg-white hover:shadow-white/50 transition duration-300 ease-in-out'
+        >
+          Contact me
+        </Link>
       </div>
 
       <p className='text-2xl font-bold text-center mt-5 relative -bottom-10'>Social Media</p>
